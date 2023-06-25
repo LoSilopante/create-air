@@ -4,7 +4,9 @@ A Forge mod that allows Create diving suits to be used whit Thin Air. When weari
 Requires Create and Thin Air.
 
 -Copper Lungs (the original mod by jc776)
+
 -Create (used for the diving gear)
+
 -Thin Air (providing the oxygen mechanic)
 
  
