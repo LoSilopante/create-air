@@ -3,6 +3,7 @@
 A Forge mod that allows Create diving suits to be used whit Thin Air. When wearing a diving helmet and a tank with some air inside, that will be used instead of the player's air supply.
 Requires Create and Thin Air.
 
+
 -Copper Lungs (the original mod by jc776)
 
 -Create (used for the diving gear)
