@@ -14,3 +14,5 @@ Requires Create and Thin Air.
 -[Thin Air](https://www.curseforge.com/minecraft/mc-mods/new-thin-air) (providing the oxygen mechanic)
 
 Remaining air not displaying, and the status effect not being hidden, are issues I'm unable to solve, my Java is really rudimentary and if anyone has a fix, I'll be happy to implement it with credit.
+
+[[Fabric version by bitheaven](https://modrinth.com/mod/create-air-fabric)]
