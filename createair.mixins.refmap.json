@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "com/silopante/createair/mixin/RemainingAirOverlayMixin": {
+      "Lnet/minecraft/client/player/LocalPlayer;isEyeInFluid(Lnet/minecraft/tags/TagKey;)Z": "Lnet/minecraft/client/player/LocalPlayer;m_204029_(Lnet/minecraft/tags/TagKey;)Z"
+    }
+  },
+  "data": {
+    "searge": {
+      "com/silopante/createair/mixin/RemainingAirOverlayMixin": {
+        "Lnet/minecraft/client/player/LocalPlayer;isEyeInFluid(Lnet/minecraft/tags/TagKey;)Z": "Lnet/minecraft/client/player/LocalPlayer;m_204029_(Lnet/minecraft/tags/TagKey;)Z"
+      }
+    }
+  }
+}

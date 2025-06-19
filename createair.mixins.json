@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "refmap": "createair.mixins.refmap.json",
+  "package": "com.silopante.createair.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "DivingHelmetItemMixin",
+	"RemainingAirOverlayMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}
