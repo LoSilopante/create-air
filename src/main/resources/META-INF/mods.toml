@@ -12,7 +12,7 @@ logoFile="logo.png"
 credits="Thanks to JC776 for the original mod."
 authors="${mod_authors}"
 description='''
-A port of JC776's Copper Lungs made to work with Fuzss' Thin Air.'''
+A port of JC776's Copper Lungs made to work with Fuzss' Thin Air, and to VeroxUniverse for rewriting most of it.'''
 
 [[dependencies.${mod_id}]]
     modId="forge"
