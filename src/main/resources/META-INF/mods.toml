@@ -1,0 +1,46 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+issueTrackerURL="https://github.com/LoSilopante/create-air/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/create-air-forge"
+logoFile="logo.png"
+credits="Thanks to JC776 for the original mod."
+authors="${mod_authors}"
+description='''
+A port of JC776's Copper Lungs made to work with Fuzss' Thin Air.'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    mandatory=true
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+	
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="create"
+    mandatory=true
+    versionRange="[6.0.6,)"
+    ordering="AFTER"
+    side="BOTH"
+	
+[[dependencies.${mod_id}]]
+    modId="thinair"
+    mandatory=true
+    versionRange="[8.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[mixins]]
+config="createair.mixins.json"
