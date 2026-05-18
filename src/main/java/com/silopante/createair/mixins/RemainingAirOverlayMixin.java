@@ -25,13 +25,12 @@ public class RemainingAirOverlayMixin {
     )
 
     private boolean redirectCanDrownInFluidType(LocalPlayer player, FluidType fluidType) {
-        AirQualityLevel quality = AirQualityHelperImpl.INSTANCE.getAirQualityAtLocation(player.level(), player.getEyePosition());
-        boolean badAir = quality == AirQualityLevel.RED || quality == AirQualityLevel.YELLOW;
-        //Createair.LOGGER.info("RemainingAirOverlayMixin redirectCanDrownInFluidType called");
-        return player.canDrownInFluidType(fluidType) || badAir;
+        if (player.canDrownInFluidType(fluidType)) return true;
+        return Createair.airQualityActivatesHelmet(player);
     }
 
-
+    // newer versions of create do additional calculations for detecting "air", these calculations are ignored if the player is lava diving.
+    // so as a form of future proofing, we also patch the isInLava check.
     @Redirect(
             method = "render",
             at = @At(
@@ -42,10 +41,8 @@ public class RemainingAirOverlayMixin {
             remap = false
     )
     private boolean redirectIsInLava(LocalPlayer player) {
-        AirQualityLevel quality = AirQualityHelperImpl.INSTANCE.getAirQualityAtLocation(player.level(), player.getEyePosition());
-        boolean badAir = quality == AirQualityLevel.RED || quality == AirQualityLevel.YELLOW;
-        //Createair.LOGGER.info("RemainingAirOverlayMixin redirectIsInLava called");
-        return player.isInLava() || badAir;
+        if (player.isInLava()) return true;
+        return Createair.airQualityActivatesHelmet(player);
     }
 }
 

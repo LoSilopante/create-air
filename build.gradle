@@ -86,9 +86,6 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
-            property "mixin.debug.verbose", "true"
-            property "mixin.debug.export", "true"
-
             // Recommended logging level for the console
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
