@@ -19,11 +19,11 @@ import java.util.List;
 @Mod.EventBusSubscriber(modid = Createair.MOD_ID)
 public class AirQualityBreathHandler {
 
-    @SubscribeEvent(priority = EventPriority.HIGH)
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onLivingTick(LivingEvent.LivingTickEvent event) {
         LivingEntity entity = event.getEntity();
 
-        if (!(event.getEntity() instanceof Player player) || player.level().isClientSide())
+        if (!(event.getEntity() instanceof Player player))
             return;
 
         AirQualityLevel quality = AirQualityHelperImpl.INSTANCE
@@ -44,11 +44,13 @@ public class AirQualityBreathHandler {
         }
 
         if (level.isClientSide()) {
+            entity.getPersistentData().remove("BacktankThinAir");
             if ((quality == AirQualityLevel.RED || quality == AirQualityLevel.YELLOW) && !player.isInLava() || player.isInWater()){
                 float visualBacktankAir = 0;
                 for (ItemStack tank : backtanks) {
                     visualBacktankAir += BacktankUtil.getAir(tank);
                 }
+                entity.getPersistentData().putBoolean("BacktankThinAir", true);
                 entity.getPersistentData().putInt("VisualBacktankAir", Math.round(visualBacktankAir));
             }
         }

@@ -25,6 +25,10 @@ base {
     archivesName = mod_id
 }
 
+mixin {
+    config "createair.mixins.json"
+}
+
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
@@ -82,6 +86,8 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
+            property "mixin.debug.verbose", "true"
+            property "mixin.debug.export", "true"
 
             // Recommended logging level for the console
             // You can set various levels here.
