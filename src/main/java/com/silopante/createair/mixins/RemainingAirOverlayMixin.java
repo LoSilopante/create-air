@@ -6,6 +6,7 @@ import com.simibubi.create.content.equipment.armor.RemainingAirOverlay;
 import fuzs.thinair.api.v1.AirQualityLevel;
 import fuzs.thinair.helper.AirQualityHelperImpl;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.fluids.FluidType;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,10 +25,24 @@ public class RemainingAirOverlayMixin {
     )
 
     private boolean redirectCanDrownInFluidType(LocalPlayer player, FluidType fluidType) {
-        AirQualityLevel quality = AirQualityHelperImpl.INSTANCE.getAirQualityAtLocation(player.level(), player.getEyePosition());
-        boolean badAir = quality == AirQualityLevel.RED || quality == AirQualityLevel.YELLOW;
-        Createair.LOGGER.info("RemainingAirOverlayMixin redirectCanDrownInFluidType called");
-        return player.canDrownInFluidType(fluidType) || badAir;
+        if (player.canDrownInFluidType(fluidType)) return true;
+        return Createair.airQualityActivatesHelmet(player);
+    }
+
+    // newer versions of create do additional calculations for detecting "air", these calculations are ignored if the player is lava diving.
+    // so as a form of future proofing, we also patch the isInLava check.
+    @Redirect(
+            method = "render",
+            at = @At(
+                    value = "INVOKE",
+                    target = "net/minecraft/client/player/LocalPlayer.isInLava ()Z",
+                    remap = true
+            ),
+            remap = false
+    )
+    private boolean redirectIsInLava(LocalPlayer player) {
+        if (player.isInLava()) return true;
+        return Createair.airQualityActivatesHelmet(player);
     }
 }
 

@@ -21,7 +21,6 @@ public abstract class CreateAirQualityFixMixin {
             remap = false
     )
     private void overrideAirSensitivity(LivingEntity ent, CallbackInfoReturnable<Boolean> cir) {
-
         if (!(ent instanceof Player player) || player.isCreative() || player.isSpectator()) return;
         if (DivingHelmetItem.isWornBy(player)) {
             List<ItemStack> backtanks = BacktankUtil.getAllWithAir(player);
